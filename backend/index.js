@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const path = require('path');
+const mongo_db = require('./config/mongo_db')
 dotenv.config({path: path.join(__dirname, 'config', 'config.env')})
+
+mongo_db();
 
 
 app.use('/api', require('./src/routes'))

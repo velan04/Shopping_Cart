@@ -1,4 +1,7 @@
-const getByAllproducts = (req,res) => {
+const productModel = require('../models/product_model')
+
+const getByAllproducts = async(req,res) => {
+    await productModel.find({})
     res.send({message: "products"})
 }
 

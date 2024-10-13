@@ -1,14 +1,29 @@
 const productModel = require('../models/product_model')
 
+//GetAllProducts Api - /api/products
 const getByAllproducts = async(req,res) => {
-    await productModel.find({})
-    res.send({message: "products"})
+    const products = await productModel.find({})
+    res.json({
+        success: "true",
+        products
+        })
 }
 
-const getByproduct = (req,res) => {
-    res.send({message: "product"})
+//GetProduct Api - /api/product/id
+const getByproduct = async (req,res) => {
+    try {
+        const product = await productModel.findById(req.params.id);
+        res.json({
+        success: "true",
+        product
+   })
+    } catch (error) {
+        res.status(404).json({
+        message: "unable to get product"
+        })
+    }
+   
 }
-
 const createproduct = (req,res) => {
     res.send({message: "create product"})
 }

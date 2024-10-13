@@ -1,23 +1,22 @@
-const getByAllorders = (req,res) => {
-    res.send({message: "orders"})
+const orderModel = require('../models/order_model');
+
+//create Order - /api/orders
+const getByAllorders = async(req,res) => {
+    const cartItems = req.body;
+    const amount = Number(cartItems.reduce((acc, item) =>
+        (acc + item.product.price * item.qty), 0)).toFixed(2);
+    const status = "pending";
+
+     const order = await orderModel.create({cartItems,amount,status});
+    res.send({ 
+        succes: "true",
+        message: "orders is working", 
+        order
+    })
 }
 
-const getByorder = (req,res) => {
-    res.send({message: "order"})
-}
 
-const createorder = (req,res) => {
-    res.send({message: "create order"})
-}
-
-const updateorder = (req,res) => {
-    res.send({message: "update order"})
-}
-
-const deleteorder = (req,res) => {
-    res.send({message: "delete order"})
-}
 
 module.exports = {
-    getByAllorders,getByorder,createorder,updateorder,deleteorder
+    getByAllorders
 }

@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "img": "/image3.jpg",
+        "title": "Hero Honda Bike",
+        "price": "₹ 2,000/-"
+    },
+
+    {
+        "id": 2,
+        "img": "/image4.jpg",
+        "title": "Iphone 12 pro ",
+        "price": "₹ 2,000/-"
+    },
+
+    {
+        "id": 3,
+        "img": "/image5.jpg",
+        "title": "Redmi airpods",
+        "price": "₹ 2,000/-"
+    },
+
+    {
+        "id": 4,
+        "img": "/images.jpg",
+        "title": "Smart Watch",
+        "price": "₹ 2,000/-"
+    },
+
+    {
+        "id": 5,
+        "img": "/photo.avif",
+        "title": "Rog Laptop",
+        "price": "₹ 2,000/-"
+    },
+
+    {
+        "id": 6,
+        "img": "/image6.jpg",
+        "title": "Smart TV",
+        "price": "₹ 2,000/-"
+    }
+]

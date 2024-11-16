@@ -36,10 +36,10 @@ const product = () => {
             <hr />
             <h1 className='text-3xl font-semibold'>$ {item.price}</h1>
             <div className='flex gap-2 my-3'>
-              <button className='text-white bg-black size-8 rounded'>+</button>
+              <button className='text-white bg-slate-900 size-8 rounded'>+</button>
               <input type="number" defaultValue={1} className='w-10 text-right border border-gray-300' />
-              <button className='text-white bg-black size-8 rounded'>-</button>
-              <button className='text-white bg-black size-8 rounded w-28 ml-9'>Add Cart</button>
+              <button className='text-white bg-slate-900 size-8 rounded'>-</button>
+              <button className='text-white bg-slate-900 size-8 rounded w-28 ml-9'>Add Cart</button>
             </div>
             <div className='mt-7'>
               <h1 className='text-2xl'>Description :</h1>

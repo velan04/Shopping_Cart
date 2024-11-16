@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-      <div className='flex justify-center h-96 w-96'>
-        <video autoPlay loop muted>
+      <div className='flex justify-center items-center h-[600px]'>
+        <video autoPlay loop muted className='h-96 w-96'>
           <source src="/cart.mp4" type="video/mp4" />
         </video>
       </div>

@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+li{
+  cursor: pointer;
+}
+
+.logo:hover{
+  color: rgb(95, 60, 223);
+}
+
+li:hover{
+ color: rgb(95, 60, 223);
+}
+
+.hoverli:hover{
+  color: rgb(255, 255, 255);
+}

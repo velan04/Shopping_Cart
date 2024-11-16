@@ -7,8 +7,9 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 
 const product = () => {
-  const [product, setProduct] = useState([]);
   const { id } = useParams();
+  const [product, setProduct] = useState([]);
+  const [count, setCount] = useState(1);
   
   useEffect(() => {
 
@@ -16,13 +17,30 @@ const product = () => {
       .then(res => res.json())
       .then(res => setProduct([res.product]))
       .catch(error => console.error('Error fetching products:', error));
-  }, [])
+  }, []);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
+  const handleChange = (e) => {
+    setCount(e.target.value);
+  };
+
+
 
   return (<>
     <Header />
     {
       product.map((item) => (
-        <div className='productDetails h-[550px] flex justify-center gap-20 items-center'>
+        <div key={item.id || 'unique-key'}
+        className='productDetails h-[550px] flex justify-center gap-20 items-center'>
           <div className='h-[450px] object-cover'>
             <img src={item.img} alt="" width={500} className='h-full' />
           </div>
@@ -41,9 +59,16 @@ const product = () => {
             <hr />
             <h1 className='text-3xl font-semibold my-5'>$ {item.price}</h1>
             <div className='flex gap-2 my-3'>
-              <button className='text-white bg-slate-900 size-8 rounded'>+</button>
-              <input type="number" defaultValue={1} className='w-10 text-right border border-gray-300' />
-              <button className='text-white bg-slate-900 size-8 rounded'>-</button>
+              <button className='text-white bg-slate-900 size-8 rounded'
+                onClick={handleDecrement}>
+                -
+              </button>
+              <input type="number" value={count} onChange={handleChange} readOnly
+                className='w-10 text-right border border-gray-300' />
+              <button className='text-white bg-slate-900 size-8 rounded'
+                onClick={handleIncrement}>
+                +
+              </button>
               <button className='text-white bg-slate-900 size-8 rounded w-28 ml-9'>Add Cart</button>
             </div>
             <div className='mt-7'>

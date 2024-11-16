@@ -17,3 +17,13 @@ li:hover{
 .hoverli:hover{
   color: rgb(255, 255, 255);
 }
+
+@media (max-width: 768px){
+  .products-container{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    width: 450px;
+  }
+
+}

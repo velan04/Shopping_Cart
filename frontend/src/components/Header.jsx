@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaOpencart } from "react-icons/fa6";
-import { FaSearch } from "react-icons/fa";
+import Search from './search';
 
 const Header = () => {
   return (
@@ -9,13 +9,7 @@ const Header = () => {
             <h1 className='text-3xl'>Shopping Cart</h1>
               <div className='text-3xl'><FaOpencart /></div>
         </div>
-      <div className='search flex  justify-between hover:border-blue-500
-        border border-gray-300 w-[400px] p-2 rounded-md'>
-          <input type="text" placeholder='Search...'
-            className='input w-40  focus:outline-none'
-          />
-        <button><FaSearch /></button>
-      </div>
+      <Search />
         <ul className='flex gap-5 text-xl '>
             <li>Products</li>
             <li>Orders</li>

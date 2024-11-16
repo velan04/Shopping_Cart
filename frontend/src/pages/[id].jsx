@@ -26,15 +26,15 @@ const product = () => {
           </div>
           <div className='h-[500px] w-[40%]'>
             <div className='w-full'>
-              <h1 className='py-5 text-4xl font-normal'>{item.title}</h1>
+              <h1 className='mb-5 text-4xl font-normal'>{item.title}</h1>
             </div>
             <hr />
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 my-5 '>
               <IoStar />
-              <h2 className='text-2xl py-3'>{item.review}/5</h2>
+              <h2 className='text-2xl '>{item.review}/5</h2>
             </div>
             <hr />
-            <h1 className='text-3xl font-semibold'>$ {item.price}</h1>
+            <h1 className='text-3xl font-semibold my-5'>$ {item.price}</h1>
             <div className='flex gap-2 my-3'>
               <button className='text-white bg-slate-900 size-8 rounded'>+</button>
               <input type="number" defaultValue={1} className='w-10 text-right border border-gray-300' />

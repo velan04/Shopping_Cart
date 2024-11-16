@@ -7,7 +7,7 @@ const Products = () => {
                       mx-4 gap-5 my-5'>
                 <div className='mobile-card'>
                     <div className=' min-w-[250px] min-h-[250px] '>
-                        <img src='' alt='products'
+                        <img src='/vite.svg' alt='products'
                             className='rounded-md object-cover h-[300px] w-[420px]' />
                     </div>
                     <div className='mb-5 max-w-full p-2'>

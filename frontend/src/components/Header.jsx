@@ -9,7 +9,8 @@ const Header = () => {
   const isProductPage = location.pathname.startsWith('/product/');
 
   return (
-    <div className='w-full bg-white h-20 font-serif sticky top-0 flex justify-between items-center px-5 shadow-md'>
+    <div className='w-full bg-white h-20 font-serif sticky top-0
+    flex justify-between items-center px-5 shadow-md z-50'>
           
       <Link to={"/"}>
           <div className='flex logo '>

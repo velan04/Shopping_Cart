@@ -2,7 +2,10 @@ const productModel = require('../models/product_model')
 
 //GetAllProducts Api - /api/products
 const getByAllproducts = async(req,res) => {
-    const products = await productModel.find({})
+    const query = req.query.keyword 
+        ? {title: {$regex: req.query.keyword,$options: 'i'}} 
+        : {}
+    const products = await productModel.find(query)
     res.json({
         success: "true",
         products

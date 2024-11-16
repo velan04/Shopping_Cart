@@ -28,8 +28,8 @@ const Products = () => {
                             className='rounded-t-xl object-cover h-[300px] w-[430px]' />
                     </div>
                     <div className='mb-5 max-w-full p-2'>
-                        <h1 className='text-xl font-semibold'>{product.title}</h1>
-                        <p className='font-normal line-clamp-2'>{product.description}</p>
+                        <h1 className='text-xl font-semibold capitalize'>{product.title}</h1>
+                            <p className='font-normal line-clamp-2 capitalize'>{product.description}</p>
                         <div className='flex justify-between items-center font-extrabold mt-1'>
                             <h3 className='text-xl'>price: {product.price}</h3>
                                 <div className='flex items-center gap-2'>

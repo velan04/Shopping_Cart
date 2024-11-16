@@ -28,7 +28,7 @@ const product = () => {
           </div>
           <div className='h-[500px] w-[40%]'>
             <div className='w-full'>
-              <h1 className='mb-5 text-4xl font-normal'>{item.title}</h1>
+              <h1 className='mb-5 text-4xl font-normal capitalize'>{item.title}</h1>
             </div>
             <hr />
             <div className='flex items-center gap-2 my-5 '>
@@ -49,7 +49,7 @@ const product = () => {
             <div className='mt-7'>
               <h1 className='text-2xl'>Description :</h1>
               <br />
-              <p>{item.description}</p>
+              <p className='capitalize'>{item.description}</p>
             </div>
           </div>
 

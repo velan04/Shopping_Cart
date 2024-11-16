@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import { IoStar } from "react-icons/io5";
 import { useParams } from 'react-router-dom';
 import apicall from '../untils/apicall';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 
 const product = () => {
   const [product, setProduct] = useState([]);
@@ -30,8 +32,11 @@ const product = () => {
             </div>
             <hr />
             <div className='flex items-center gap-2 my-5 '>
-              <IoStar />
-              <h2 className='text-2xl '>{item.review}/5</h2>
+              <h2 className='text-2xl '>
+                <Stack spacing={1}>
+                  <Rating name="half-rating-read" defaultValue={item.review} precision={0.5} readOnly />
+                </Stack>
+              </h2>
             </div>
             <hr />
             <h1 className='text-3xl font-semibold my-5'>$ {item.price}</h1>

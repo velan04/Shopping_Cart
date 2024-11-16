@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
 import apicall from '../untils/apicall';
-import { IoIosStar } from "react-icons/io";
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -31,7 +32,11 @@ const Products = () => {
                         <p className='font-normal line-clamp-2'>{product.description}</p>
                         <div className='flex justify-between items-center font-extrabold mt-1'>
                             <h3 className='text-xl'>price: {product.price}</h3>
-                                <div className='flex items-center gap-2'><IoIosStar />{product.review}/5</div>
+                                <div className='flex items-center gap-2'>
+                                    <Stack spacing={1}>
+                                        <Rating name="half-rating-read" defaultValue={product.review} precision={0.5} readOnly />
+                                    </Stack>
+                                </div>
                             <Link to={"/product/"+product._id}>
                                 <button
                                     className='bg-slate-900 text-white p-2 rounded-md'>

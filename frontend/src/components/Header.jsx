@@ -27,7 +27,7 @@ const Header = ({cartItems}) => {
           <Link to={"/products"}><li>Products</li></Link>
             <li>Orders</li>
           <Badge badgeContent={cartItems.length} color="primary">
-            <li>Cart</li>
+              <Link to={"/cart"}><li>Cart</li></Link>
           </Badge>
         <li className='bg-slate-900 text-white px-2 rounded-md hoverli'>Login</li>
         </ul> 

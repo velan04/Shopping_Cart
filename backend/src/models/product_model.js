@@ -9,8 +9,9 @@ const productSchema = new mongoose.Schema({
             image: String
         }
     ],
-    createdAt: Date
-
+    createdAt: Date,
+    review: Number,
+    qty: Number,
 })
 
 const productModel = mongoose.model('product', productSchema);

@@ -20,6 +20,9 @@ const product = ({cartItems, setCartItems}) => {
   }, []);
 
   const handleIncrement = () => {
+    if(count >= product.stock){
+      return;
+    }
     setCount(count + 1);
   };
 
@@ -64,6 +67,7 @@ const product = ({cartItems, setCartItems}) => {
               </h2>
             </div>
             <hr />
+          <h3 className='text-xl font-semibold'>No of Stock: {product.stock}</h3>
           <h1 className='text-3xl font-semibold my-5'>$ {product.price}</h1>
             <div className='flex gap-2 my-3'>
               <button className='text-white bg-slate-900 size-8 rounded'

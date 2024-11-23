@@ -3,6 +3,7 @@ import { FaOpencart } from "react-icons/fa6";
 import Search from './search';
 import { Link, useLocation } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
+import Login from './Login';
 
 const Header = ({cartItems}) => {
   const location = useLocation();
@@ -29,7 +30,7 @@ const Header = ({cartItems}) => {
           <Badge badgeContent={cartItems.length} color="primary">
               <Link to={"/cart"}><li>Cart</li></Link>
           </Badge>
-        <li className='bg-slate-900 text-white px-2 rounded-md hoverli'>Login</li>
+        <Login />
         </ul> 
     </div>
     )}

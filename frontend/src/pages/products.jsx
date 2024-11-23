@@ -20,7 +20,7 @@ const Products = () => {
             })
             .catch((error) => {
                 console.error('Error fetching products:', error);
-                setLoading(false); // Stop showing Skeletons even on error
+                setLoading(false);
             });
     }, [searchParams]);
 
@@ -57,7 +57,7 @@ const Products = () => {
                                 {product.description}
                             </p>
                             <div className="flex justify-between items-center font-extrabold mt-1">
-                                <h3 className="text-xl">price: {product.price}</h3>
+                                <h3 className="text-xl">₹ {product.price}</h3>
                                 <div className="flex items-center gap-2">
                                     <Stack spacing={1}>
                                         <Rating
@@ -69,7 +69,7 @@ const Products = () => {
                                     </Stack>
                                 </div>
                                 <Link to={`/product/${product._id}`}>
-                                    <button className="bg-slate-900 text-white p-2 rounded-md">
+                                    <button className="bg-blue-700 text-white p-2 rounded-md font-normal">
                                         View More
                                     </button>
                                 </Link>

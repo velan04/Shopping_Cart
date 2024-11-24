@@ -24,6 +24,8 @@ const Products = () => {
             });
     }, [searchParams]);
 
+    console.log(products);
+
     return (
         <div className="products-container grid grid-cols-3 justify-center w-[1310px] mx-4 gap-5 my-5">
             {loading
@@ -43,6 +45,8 @@ const Products = () => {
                     </div>
                 ))
                 : products.map((product) => (
+                    //if stock 0 not shown 
+                    product.stock > 0 && (
                     <div className="mobile-card shadow-xl rounded-b-xl" key={product.id}>
                         <div className="min-w-[250px] min-h-[250px]">
                             <img
@@ -76,6 +80,7 @@ const Products = () => {
                             </div>
                         </div>
                     </div>
+                    )
                 ))}
         </div>
     );

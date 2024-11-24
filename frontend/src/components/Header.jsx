@@ -26,7 +26,7 @@ const Header = ({cartItems}) => {
       {!isProductPage && <Search />}
         <ul className='flex gap-5 text-xl '>
           <Link to={"/products"}><li>Products</li></Link>
-            <li>Orders</li>
+            <Link to={"/orders"}><li>Orders</li></Link>
           <Badge badgeContent={cartItems.length} color="primary">
               <Link to={"/cart"}><li>Cart</li></Link>
           </Badge>

@@ -1,6 +1,15 @@
 const orderModel = require('../models/order_model');
 const productModel = require('../models/product_model');
 
+// get orders
+const getOrders = async (req, res, next) => {
+    const orders = await orderModel.find();
+    res.json({
+        success:true,
+        orders
+    })
+}
+
 //create Order - /api/orders
 const createOrder = async (req, res, next) => {
     const cartItems = req.body;
@@ -25,5 +34,6 @@ const createOrder = async (req, res, next) => {
 
 
 module.exports = {
+    getOrders,
     createOrder
 }

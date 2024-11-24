@@ -72,17 +72,17 @@ const Cart = ({cartItems, setCartItems}) => {
                             <h3 className='text-2xl'>{item.product.title}</h3>
                             <div>
                                 <div className='flex gap-2 my-3'>
-                                    <button className='text-white bg-slate-900 size-8 rounded'
+                                    <button className='text-white bg-blue-700 size-8 rounded'
                                           onClick={() => decreaseQty(item)}>
                                         -
                                     </button>
                                     <input type="number" value={item.count} readOnly
                                         className='w-10 text-right border border-gray-300' />
-                                    <button className='text-white bg-slate-900 size-8 rounded'
+                                    <button className='text-white bg-blue-700 size-8 rounded'
                                           onClick={() => increaseQty(item)}>
                                         +
                                     </button>
-                                    <button className='text-white bg-slate-900 size-8 rounded w-28 ml-9'
+                                    <button className='text-white bg-blue-700 size-8 rounded w-28 ml-9'
                                           onClick={() => removeItem(item)}>Remove
                                     </button>
                                 </div>                           
@@ -121,7 +121,7 @@ const Cart = ({cartItems, setCartItems}) => {
                 <h3> ₹ {cartItems.reduce((acc, item) => (acc +item.product.price * item.count), 0)}</h3>
               </div>
               <button>
-                  <h3 className='mt-3 text-white bg-slate-900 text-center
+                  <h3 className='mt-3 text-white bg-blue-700 text-center
                   p-2 rounded' onClick={placeOrder}>Proceed to Checkout</h3>
               </button>
           </div>

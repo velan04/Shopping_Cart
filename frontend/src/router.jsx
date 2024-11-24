@@ -12,7 +12,7 @@ function MainRoutes() {
     const [cartItems, setCartItems] = useState([])
     return (
     <>
-            <ToastContainer draggable theme='dark' autoClose={3000} position='top-center'/>
+            <ToastContainer draggable theme='dark' autoClose={1000} position='top-right'/>
         <Header cartItems={cartItems} />
         <Routes>
             <Route path="/" element={<App />} />

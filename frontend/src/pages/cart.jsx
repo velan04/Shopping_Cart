@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Fragment } from 'react';
+import apicall from '../untils/apicall';
+import {toast} from 'react-toastify';
 
 const Cart = ({cartItems, setCartItems}) => {
+    const [complete, setComplete] = useState(false)
+
     function increaseQty (item) {
         if(item.product.stock == item.count){
             return;
         }
         const updatedItems = cartItems.map((i) => {
             if(i.product._id == item.product._id){
-                i.count + 1
+                i.count++
             }
             return i;
 
@@ -22,7 +26,7 @@ const Cart = ({cartItems, setCartItems}) => {
         }
         const updatedItems = cartItems.map((i) => {
             if(i.product._id == item.product._id){
-                i.count - 1
+                i.count--
             }
             return i;
 
@@ -31,22 +35,35 @@ const Cart = ({cartItems, setCartItems}) => {
     }
     
    function removeItem(item) {
-    const updatedCartItems = cartItems.filter((i) => {
-        if(i.product._id !== item.product._id){
+       const updatedItems = cartItems.filter((i) => {
+           if (i.product._id !== item.product._id) {
+               return true
+           }
+       })
+       setCartItems(updatedItems);
+   }
 
-        };
+   const placeOrder = () => {
+    fetch(`${apicall}/orders`,{
+         method: 'POST',
+         headers: {'content-Type': 'application/json'},
+         body: JSON.stringify(cartItems)
+    })
+   .then(() => {
+        setCartItems([]);
+        setComplete(true);
+        toast.success('Order Placed Successfully!');
    })
-   setCartItems(updatedCartItems);
-}
+   }
 
     
-
-    console.log(cartItems);
   return (<>
       <div className='mb-24' key={cartItems.product}>
-          <div className='flex flex-col gap-6'>
-              <h1 className='text-3xl border-b-2 m-9 pb-4 border-gray-300'>Your Cart - {cartItems.length} items </h1>
-              {cartItems.map((item) => (
+          <div className='flex flex-col gap-6' key={cartItems.product}>
+            {cartItems.length > 0 && 
+                <h1 className='text-3xl border-b-2 m-9 pb-4 border-gray-300'>Your Cart - {cartItems.length} items </h1>
+            }
+            {cartItems.map((item) => (
               <div className='grid grid-cols-4 mx-3 items-center'>
                     <Fragment>
                         <img src={item.product.img} alt='products'
@@ -78,26 +95,34 @@ const Cart = ({cartItems, setCartItems}) => {
                     </Fragment>
                 </div>
               ))}
+              {cartItems.length == 0 && !complete &&
+                <div className='flex justify-center items-center h-[500px]'>
+                    <h1 className='text-3xl'>Oops Your Cart is empty!</h1>
+                </div>
+              }
+              {
+                complete &&
+                <div className='flex justify-center items-center h-[500px]'>
+                    <h1 className='text-3xl'>Order Placed Successfully!</h1>
+                </div>
+              }
           </div>
           {
             cartItems.map((item) => (
           <div className='flex flex-col justify-center gap-6 px-4 w-72 h-full
             fixed right-2 top-0 bg-white border-l-2'>
               <h1 className='text-2xl text-center font-semibold'>Order Summary</h1>
-              <div className='flex justify-between'>
-                  <h3>Subtotal</h3>
-                  <h3>{item.product.count * item.product.price}</h3>
+              <div className='flex justify-between text-xl'>
+                  <h3>Subtotal:</h3>
+                  <h3>{cartItems.reduce((acc, item) => (acc + item.count), 0)} (Units)</h3>
               </div>
-              <div className='flex justify-between'>
-                  <h3>Shipping</h3>
-                  <h3>Rs. 100</h3>
-              </div>
-              <div className='flex justify-between font-medium text-xl'>
-                  <h3 className=''>Total</h3>
-                  <h3>Rs. 1100</h3>
+              <div className='flex justify-between  text-xl'>
+                <h3 className=''>Est.total:</h3>
+                <h3> ₹ {cartItems.reduce((acc, item) => (acc +item.product.price * item.count), 0)}</h3>
               </div>
               <button>
-                  <h3 className='mt-3 text-white bg-slate-900 text-center p-2 rounded'>Proceed to Checkout</h3>
+                  <h3 className='mt-3 text-white bg-slate-900 text-center
+                  p-2 rounded' onClick={placeOrder}>Proceed to Checkout</h3>
               </button>
           </div>
           ))}

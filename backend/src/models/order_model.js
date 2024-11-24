@@ -5,7 +5,6 @@ const orderSchema = new mongoose.Schema({
     amount: String,
     status: String,
     createdAt: Date
-
 })
 
 const orderModel = mongoose.model('order',orderSchema);

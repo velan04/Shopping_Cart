@@ -11,6 +11,8 @@ const productSchema = new mongoose.Schema({
     ],
     createdAt: Date,
     review: Number,
+    category: String,
+    stock: Number,
     qty: Number,
 })
 

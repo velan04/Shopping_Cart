@@ -9,7 +9,7 @@ const Header = ({cartItems}) => {
   const location = useLocation();
 
   const isHomeWithAnimatedLogo = location.pathname === '/';
-  const isProductPage = location.pathname.startsWith('/product/');
+  const isProductPage = location.pathname.startsWith('/products');
 
   return (
     <>
@@ -23,7 +23,7 @@ const Header = ({cartItems}) => {
             <div className='text-3xl'><FaOpencart /></div>
           </div>
       </Link>
-      {!isProductPage && <Search />}
+      {isProductPage && <Search />}
         <ul className='flex gap-5 text-xl '>
           <Link to={"/products"}><li>Products</li></Link>
             <Link to={"/orders"}><li>Orders</li></Link>

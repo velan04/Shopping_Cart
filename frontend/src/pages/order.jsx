@@ -21,7 +21,9 @@ const Order = () => {
     return (
         <div className="p-4">
             {orders.length === 0 ? (
-                <p>No orders found.</p>
+                <div className='flex justify-center items-center h-[500px]'>
+                    <h1 className='text-3xl'>No Orders Found</h1>
+                </div>
             ) : (
                 orders.map((order) => (
                     <div className='flex justify-between w-full items-center  border p-4 px-6 mb-4 rounded-md shadow-md'> 

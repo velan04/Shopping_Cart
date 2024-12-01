@@ -5,11 +5,31 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Skeleton from '@mui/material/Skeleton';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { IoCloudUploadSharp } from "react-icons/io5";
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    borderRadius: 5,
+    boxShadow: 24,
+    p: 4,
+};
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchParams, setSearchParams] = useSearchParams();
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
 
     useEffect(() => {
         fetch(`${apicall}/products?${searchParams}`)
@@ -24,9 +44,34 @@ const Products = () => {
             });
     }, [searchParams]);
 
-    console.log(products);
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
 
-    return (
+        const formData = new FormData(e.target);
+
+        try {
+            const response = await fetch(`${apicall}/products`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert('Product created successfully!');
+                setOpen(false); // Close the modal
+                // Optionally, refresh the product list
+            } else {
+                alert(`Failed to create product: ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error creating product:', error);
+            alert('An error occurred while creating the product.');
+        }
+    };
+
+
+    return (<>
         <div className="products-container grid grid-cols-3 justify-center w-[1310px] mx-4 gap-5 my-5">
             {loading
                 ? Array.from(new Array(6)).map((_, index) => (
@@ -83,7 +128,51 @@ const Products = () => {
                     )
                 ))}
         </div>
-    );
+        <div>
+            <button onClick={handleOpen} className='bg-blue-900 px-5 py-3 rounded-xl
+            text-white fixed bottom-0 right-0 flex items-center gap-2'>
+                <IoCloudUploadSharp />
+                Upload.
+            </button>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <h1 className='text-center font-semibold text-2xl'>Products Details</h1>
+                    <form
+                        onSubmit={(e) => handleFormSubmit(e)}
+                        encType="multipart/form-data"
+                        className="grid grid-cols-1 gap-1"
+                    >
+                        <label htmlFor="">Title:</label>
+                        <input type="text" className="border-2" name="title" required />
+                        <label htmlFor="">Description:</label>
+                        <input type="text" className="border-2" name="description" required />
+                        <label htmlFor="">Price:</label>
+                        <input type="number" className="border-2" name="price" required />
+                        <label htmlFor="">Stock:</label>
+                        <input type="number" className="border-2" name="stock" required />
+                        <label htmlFor="">Review:</label>
+                        <input type="number" className="border-2" name="review" step="0.1" required />
+                        <label htmlFor="">Image:</label>
+                        <input type="file" name="image" accept="image/*" required />
+                        <div className="flex justify-between mt-2">
+                            <button type="reset" className="bg-blue-600 p-1 rounded-xl text-white px-4">
+                                Reset
+                            </button>
+                            <button type="submit" className="bg-blue-600 p-1 rounded-xl text-white px-4">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+
+                </Box>
+            </Modal>
+        </div>
+    </>);
 };
 
 export default Products;

@@ -1,4 +1,4 @@
-const productModel = require('../models/product_model')
+const productModel = require('../models/product_model');
 
 //GetAllProducts Api - /api/products
 const getByAllproducts = async(req,res) => {
@@ -27,9 +27,23 @@ const getByproduct = async (req,res) => {
     }
    
 }
-const createproduct = (req,res) => {
-    res.send({message: "create product"})
-}
+
+const createProduct = async (req, res) => {
+    try {
+        const productData = {
+            ...req.body,
+            image: req.file ? req.file.filename : null, // Save the uploaded image filename
+        };
+
+        const product = new productModel(productData);
+        const result = await product.save();
+
+        res.status(201).json({ success: true, product: result });
+    } catch (error) {
+        console.error('Error creating product:', error);
+        res.status(500).json({ success: false, message: 'Error creating product' });
+    }
+};  
 
 const updateproduct = (req,res) => {
     res.send({message: "update product"})
@@ -40,5 +54,9 @@ const deleteproduct = (req,res) => {
 }
 
 module.exports = {
-    getByAllproducts,getByproduct,createproduct,updateproduct,deleteproduct
+    getByAllproducts,
+    getByproduct,
+    createProduct,
+    updateproduct,
+    deleteproduct
 }

@@ -8,12 +8,13 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from './pages/cart';
 import Order from './pages/order';
+import MobileNav from './components/MobileNav';
 
 function MainRoutes() {
     const [cartItems, setCartItems] = useState([])
     return (
     <>
-            <ToastContainer draggable theme='dark' autoClose={1000} position='top-right'/>
+        <ToastContainer draggable theme='dark' autoClose={1000} position='top-right'/>
         <Header cartItems={cartItems} />
         <Routes>
             <Route path="/" element={<App />} />
@@ -22,6 +23,7 @@ function MainRoutes() {
             <Route path="/orders" element={<Order />} />
             <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
         </Routes>
+        <MobileNav />
     </>
     );
 }

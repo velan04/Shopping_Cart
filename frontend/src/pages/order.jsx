@@ -26,7 +26,7 @@ const Order = () => {
                 </div>
             ) : (
                 orders.map((order) => (
-                    <div className='flex justify-between w-full items-center  border p-4 px-6 mb-4 rounded-md shadow-md'> 
+                    <div className='orders flex justify-between w-full items-center  border p-4 px-6 mb-4 rounded-md shadow-md'> 
                         <div key={order._id} className="">
                             <div className="">
                                 {order.cartItems.map((cartItem) => (

@@ -50,7 +50,7 @@ const product = ({cartItems, setCartItems}) => {
   return (<>
     { product &&  (
         <div key={product._id || 'unique-key'}
-          className='productDetails h-[550px] flex justify-center gap-20 items-center'>
+        className='productDetails h-[550px] flex justify-center gap-20 items-center'>
           <div className='h-[450px] object-cover'>
           <img src={product.img} alt="" width={500} className='h-full' />
           </div>

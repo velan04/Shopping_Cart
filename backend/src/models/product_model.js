@@ -5,10 +5,10 @@ const productSchema = new mongoose.Schema({
     description: {type: String, required: true},
     price: {type: Number, required: true},
     stock: { type: Number, required: true },
-    review: { type: Number, default: 0 }, // Make review optional with a default
-    image: { type: String }, // Already optional
+    review: { type: Number, default: 0 },
+    image: { type: String },
     createdAt: { type: Date, default: Date.now },
-    qty: { type: Number, default: 1 }, // Make qty optional with a default
+    qty: { type: Number, default: 1 },
 })
 
 const productModel = mongoose.model('product', productSchema);

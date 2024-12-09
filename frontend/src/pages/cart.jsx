@@ -96,7 +96,7 @@ const Cart = ({cartItems, setCartItems}) => {
                 </div>
               ))}
               {cartItems.length == 0 && !complete &&
-                <div className='flex justify-center items-center h-[500px]'>
+                  <div className='container flex justify-center items-center h-[500px]'>
                     <h1 className='text-3xl'>Oops Your Cart is empty!</h1>
                 </div>
               }
@@ -109,7 +109,7 @@ const Cart = ({cartItems, setCartItems}) => {
           </div>
           {
             cartItems.map((item) => (
-          <div className='flex flex-col justify-center gap-6 px-4 w-72 h-full
+                <div className='flex flex-col justify-center gap-6 px-4 w-72 h-full
             fixed right-2 top-0 bg-white border-l-2'>
               <h1 className='text-2xl text-center font-semibold'>Order Summary</h1>
               <div className='flex justify-between text-xl'>

@@ -14,17 +14,17 @@ const Header = ({cartItems}) => {
   return (
     <>
       {!isHomeWithAnimatedLogo && ( 
-    <div className='w-full bg-white h-20 font-serif sticky top-0
+    <div className='mobile-size w-full bg-white h-20 font-serif sticky top-0
     flex justify-between items-center px-5 shadow-md z-50'>
           
       <Link to={"/"}>
-          <div className='flex logo '>
-            <h1 className='text-3xl'>Shopping Cart</h1>
-            <div className='text-3xl'><FaOpencart /></div>
+            <div className='logo flex'>
+              <h1 className='text-xl md:text-3xl'>Shopping Cart</h1>
+              <div className='text-xl md:text-3xl'><FaOpencart /></div>
           </div>
       </Link>
       {isProductPage && <Search />}
-        <ul className='flex gap-5 text-xl '>
+        <ul className='menu-btn flex gap-5 text-xl '>
           <Link to={"/products"}><li>Products</li></Link>
             <Link to={"/orders"}><li>Orders</li></Link>
           <Badge badgeContent={cartItems.length} color="primary">

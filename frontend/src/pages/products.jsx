@@ -128,7 +128,7 @@ const Products = () => {
                     )
                 ))}
         </div>
-        {/* <div>
+        <div>
             <button onClick={handleOpen} className='bg-blue-900 px-5 py-3 rounded-xl
             text-white fixed bottom-0 right-0 flex items-center gap-2'>
                 <IoCloudUploadSharp />
@@ -171,7 +171,7 @@ const Products = () => {
 
                 </Box>
             </Modal>
-        </div> */}
+        </div>
     </>);
 };
 

@@ -30,7 +30,7 @@ const Header = ({cartItems}) => {
           <Badge badgeContent={cartItems.length} color="primary">
               <Link to={"/cart"}><li>Cart</li></Link>
           </Badge>
-        <Login />
+        {/* <Login /> */}
         </ul> 
     </div>
     )}

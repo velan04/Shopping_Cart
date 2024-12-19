@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom';
 
 const MobileNav = () => {
   return (
-    <div className="mobile-nav fixed bottom-0 w-full max-w-[420px] sm:max-w-[500px] md:max-w-[600px]
-    h-14 bg-white items-center justify-between px-5 text-2xl flex md:hidden">
+    <div className="mobile-nav fixed bottom-0 w-full sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px] 
+    h-14 bg-white flex items-center justify-between px-5 text-2xl sm:text-lg lg:text-xl 
+    sm:px-8 md:px-10 lg:px-12 border-t md:hidden">
       <Link to={"/products"}>
         <span><AiFillProduct /></span>
       </Link>

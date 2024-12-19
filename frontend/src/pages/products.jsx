@@ -75,7 +75,7 @@ const Products = () => {
         <div className="products-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
         justify-center w-full sm:w-[90%] lg:w-[1310px] mx-auto gap-4 sm:gap-5 my-5 px-2 mb-10">
             {loading
-                ? Array.from(new Array(products.length)).map((_, index) => (
+                ? Array.from(new Array(products.length || 6)).map((_, index) => (
                     <div className="mobile-card shadow-xl rounded-b-xl" key={index}>
                         <Box className="min-w-[200px] min-h-[200px] sm:min-w-[250px] sm:min-h-[250px]">
                             <Skeleton variant="rectangular" width="100%" height={200} />

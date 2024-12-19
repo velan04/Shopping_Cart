@@ -119,7 +119,7 @@ const product = ({cartItems, setCartItems}) => {
           <div className="mt-7">
             <h1 className="text-xl md:text-2xl">Description:</h1>
             <br />
-            <p className="capitalize text-sm md:text-base">
+            <p className="capitalize text-sm md:text-base break-words">
               {product.description}
             </p>
           </div>

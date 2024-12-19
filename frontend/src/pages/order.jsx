@@ -28,7 +28,8 @@ const Order = () => {
                 orders.map((order) => (
                     <div
                         key={order._id}
-                        className="orders flex flex-wrap justify-between items-start border p-4 px-6 mb-4 rounded-md shadow-md"
+                        className="orders flex flex-wrap justify-between items-start border p-4 px-6
+                        rounded-md shadow-md mb-10"
                     >
                         <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col items-center mb-4">
                             {order.cartItems.map((cartItem) => (

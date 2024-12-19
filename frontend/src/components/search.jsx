@@ -17,7 +17,8 @@ const Search = () => {
     };
 
   return (
-    <div className="search flex items-center justify-between hover:border-blue-500 border border-gray-300 w-full max-w-[400px] p-2 rounded-md mx-auto sm:w-[400px]">
+    <div className="search flex items-center justify-between hover:border-blue-500 border
+     border-gray-300 w-full max-w-[400px] p-2 rounded-md mx-auto sm:w-[400px] sm:text-sm">
       <input
         type="text"
         placeholder="Search..."

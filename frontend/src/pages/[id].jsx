@@ -48,54 +48,84 @@ const product = ({cartItems, setCartItems}) => {
 
 
   return (<>
-    { product &&  (
-        <div key={product._id || 'unique-key'}
-        className='productDetails h-[550px] flex justify-center gap-20 items-center'>
-          <div className='h-[450px] object-cover'>
-          <img src={product.img} alt="" width={500} className='h-full' />
-          </div>
-          <div className='h-[500px] w-[40%]'>
-            <div className='w-full'>
-            <h1 className='mb-5 text-4xl font-normal capitalize'>{product.title}</h1>
-            </div>
-            <hr />
-            <div className='flex items-center gap-2 my-5 '>
-              <h2 className='text-2xl '>
-                <Stack spacing={1}>
-                <Rating name="half-rating-read" defaultValue={product.review} precision={0.5} readOnly />
-                </Stack>
-              </h2>
-            </div>
-            <hr />
-          <h3 className='text-xl font-semibold'>No of Stock: {product.stock}</h3>
-          <h1 className='text-3xl font-semibold my-5'>$ {product.price}</h1>
-            <div className='flex gap-2 my-3'>
-              <button className='text-white bg-blue-700 size-8 rounded'
-                onClick={handleDecrement}>
-                -
-              </button>
-              <input type="number" value={count} onChange={handleChange} readOnly
-                className='w-10 text-right border border-gray-300' />
-              <button className='text-white bg-blue-700 size-8 rounded'
-                onClick={handleIncrement}>
-                +
-              </button>
-              <button className='text-white bg-blue-700 size-8 rounded w-28 ml-9'
-                onClick={addToCart}>Add Cart
-              </button>
-            </div>
-            <div className='mt-7'>
-              <h1 className='text-2xl'>Description :</h1>
-              <br />
-            <p className='capitalize'>{product.description}</p>
-            </div>
-          </div>
-
+    {product && (
+      <div
+        key={product._id || "unique-key"}
+        className="productDetails flex flex-col md:flex-row justify-center gap-10 md:gap-20 items-center p-5"
+      >
+        {/* Product Image */}
+        <div className="h-[300px] md:h-[450px] object-cover">
+          <img
+            src={product.img}
+            alt=""
+            className="h-full w-full max-w-[300px] md:max-w-[500px] object-contain"
+          />
         </div>
-      )
-    
-    }
-    
+
+        {/* Product Details */}
+        <div className="w-full md:w-[60%]">
+          <div className="w-full mb-5">
+            <h1 className="text-2xl md:text-4xl font-normal capitalize">
+              {product.title}
+            </h1>
+          </div>
+          <hr />
+          <div className="flex items-center gap-2 my-5">
+            <h2 className="text-lg md:text-2xl">
+              <Stack spacing={1}>
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={product.review}
+                  precision={0.5}
+                  readOnly
+                />
+              </Stack>
+            </h2>
+          </div>
+          <hr />
+          <h3 className="text-lg md:text-xl font-semibold">
+            No of Stock: {product.stock}
+          </h3>
+          <h1 className="text-2xl md:text-3xl font-semibold my-5">
+            $ {product.price}
+          </h1>
+          <div className="flex gap-2 my-3 items-center">
+            <button
+              className="text-white bg-blue-700 px-3 py-2 rounded"
+              onClick={handleDecrement}
+            >
+              -
+            </button>
+            <input
+              type="number"
+              value={count}
+              onChange={handleChange}
+              readOnly
+              className="w-12 text-center border border-gray-300"
+            />
+            <button
+              className="text-white bg-blue-700 px-3 py-2 rounded"
+              onClick={handleIncrement}
+            >
+              +
+            </button>
+            <button
+              className="text-white bg-blue-700 px-5 py-2 rounded w-full md:w-28"
+              onClick={addToCart}
+            >
+              Add Cart
+            </button>
+          </div>
+          <div className="mt-7">
+            <h1 className="text-xl md:text-2xl">Description:</h1>
+            <br />
+            <p className="capitalize text-sm md:text-base">
+              {product.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
   </>
   )
 }

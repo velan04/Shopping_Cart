@@ -19,8 +19,9 @@ const Header = ({cartItems}) => {
         >
           <Link to={"/"}>
             <div className="logo flex items-center">
-              <h1 className="text-lg md:text-3xl">Shopping Cart <FaOpencart /></h1>
+              <h1 className="text-lg md:text-3xl">Shopping Cart</h1>
               <div className="text-lg md:text-3xl ml-2">
+                <FaOpencart />
               </div>
             </div>
           </Link>

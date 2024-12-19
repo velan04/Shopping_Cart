@@ -17,18 +17,18 @@ const Search = () => {
     };
 
   return (
-      <div><div className='search flex  justify-between hover:border-blue-500
-        border border-gray-300 w-[400px] p-2 rounded-md'>
-          <input type="text" placeholder='Search...'
-              className='input w-80  focus:outline-none'
-              onChange={(e) => setSearch(e.target.value)}
-              onKeyDown={enterHandler}
-          />
-          <button onClick={searchHandler}>
-            <FaSearch />
-        </button>
-      </div>
-      </div>
+    <div className="search flex items-center justify-between hover:border-blue-500 border border-gray-300 w-full max-w-[400px] p-2 rounded-md mx-auto sm:w-[400px]">
+      <input
+        type="text"
+        placeholder="Search..."
+        className="input w-full sm:w-80 focus:outline-none"
+        onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={enterHandler}
+      />
+      <button onClick={searchHandler} className="ml-2">
+        <FaSearch />
+      </button>
+    </div>
   )
 }
 
